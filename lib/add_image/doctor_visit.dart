@@ -104,7 +104,7 @@ class _DoctorVisitState extends State<DoctorVisit> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 5,
               ),
               _image != null
                   ? Image.file(
@@ -115,50 +115,36 @@ class _DoctorVisitState extends State<DoctorVisit> {
                     )
                   : Image.network('https://picsum.photos/250?image=9'),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SaveDoctorVisit()));
-                  },
-                  child: Text('OK'))
+              CustomButton(
+                  title: 'Choose an image',
+                  icon: Icons.image_outlined,
+                  onClick: () => getImage(ImageSource.gallery)),
+              CustomButton(
+                title: 'Open Camera',
+                icon: Icons.camera,
+                onClick: () => getImage(ImageSource.camera),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SaveDoctorVisit()));
+                },
+                icon: Icon(Icons.save_as_sharp),
+                label: Text('Save '),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
             ],
           ),
         ),
-        // child: Column(
-        //   children: [
-        //     Text("Doctor\u0027s Name"),
-        //     TextField(),
-        //     Text('Visit Date'),
-        //     TextField(),
-        //     Text('Reason for Visit'),
-        //     TextField(),
-        //     Text('Reason for visit'),
-        //     TextField(),
-        //     SizedBox(
-        //       height: 20,
-        //     ),
-        //     _image != null
-        //         ? Image.file(
-        //             _image!,
-        //             width: 250,
-        //             height: 250,
-        //             fit: BoxFit.cover,
-        //           )
-        //         : Image.network('https://picsum.photos/250?image=9'),
-        //     SizedBox(
-        //       height: 15,
-        //     ),
-        //     CustomButton(
-        //         title: 'Choose an image',
-        //         icon: Icons.image_outlined,
-        //         onClick: () => getImage(ImageSource.gallery)),
-        //     CustomButton(
-        //       title: 'Open Camera',
-        //       icon: Icons.camera,
-        //       onClick: () => getImage(ImageSource.camera),
-        //     ),
+
         //   ],
         // ),
       ),

@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:healthcare_app/add_image/view_lab_reports.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
@@ -109,6 +110,21 @@ class _LabReportState extends State<LabReport> {
                 icon: Icons.camera,
                 onClick: () => getImage(ImageSource.camera),
               ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ViewLabReports()));
+                },
+                icon: Icon(Icons.save_as_sharp),
+                label: Text('Save '),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic),
+                ),
+              )
             ],
           ),
         ),

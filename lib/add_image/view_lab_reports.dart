@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class SaveDoctorVisit extends StatefulWidget {
-  const SaveDoctorVisit({Key? key}) : super(key: key);
+class ViewLabReports extends StatefulWidget {
+  const ViewLabReports({Key? key}) : super(key: key);
 
   @override
-  State<SaveDoctorVisit> createState() => _SaveDoctorVisitState();
+  State<ViewLabReports> createState() => _ViewLabReportsState();
 }
 
-class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
+class _ViewLabReportsState extends State<ViewLabReports> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.deepPurple[100],
         appBar: AppBar(
-          title: Text('My doctor visits'),
+          title: Text('My lab reports'),
           centerTitle: true,
         ),
         body: Container(
@@ -32,7 +32,7 @@ class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
                       width: 6,
                     ),
                     Text(
-                      'Normal Checkup',
+                      ' NRL Package',
                       style: TextStyle(
                           fontSize: 16,
                           color: Theme.of(context).primaryColor,
@@ -45,7 +45,7 @@ class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.thumb_up_sharp,
+                    Icon(Icons.date_range,
                         color: Theme.of(context).primaryColor),
                     SizedBox(
                       width: 6,
@@ -60,15 +60,6 @@ class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(Icons.person),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      'Dr. Saurabh Khatiwada',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
                   ],
                 ),
                 SizedBox(
@@ -82,7 +73,7 @@ class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => SaveDoctorVisit(),
+                            builder: (_) => ViewLabReports(),
                           ),
                         );
                       },

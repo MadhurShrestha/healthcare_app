@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/add_image/save_doctor_visit.dart';
+import 'package:healthcare_app/add_image/view_lab_reports.dart';
 import 'package:healthcare_app/util/doctor_card.dart';
 import 'package:lottie/lottie.dart';
 
@@ -14,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   void _showDatePicker() {
     showDatePicker(
       context: context,
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       lastDate: DateTime(2050),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,32 +113,31 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(
                               height: 4,
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(12.0),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: ElevatedButton(
+                            Column(children: [
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.deepPurpleAccent)),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DoctorVisit()));
+                                  },
+                                  child: const Text('Add doctor visits')),
+                              ElevatedButton(
                                 style: ButtonStyle(
                                     backgroundColor:
                                         MaterialStateProperty.all<Color>(
                                             Colors.deepPurpleAccent)),
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => DoctorVisit()));
+                                      builder: (context) => SaveDoctorVisit()));
                                 },
-                                child: const Center(
-                                  child: const Text(
-                                    'Add doctor visit',
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
-                                ),
+                                child: Text('View doctor visits'),
                               ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(12.0),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: ElevatedButton(
+                              ElevatedButton(
                                 style: ButtonStyle(
                                     backgroundColor:
                                         MaterialStateProperty.all<Color>(
@@ -145,14 +146,20 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => LabReport()));
                                 },
-                                child: Center(
-                                  child: Text(
-                                    'Add lab report',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
+                                child: Text('Add lab reports'),
                               ),
-                            ),
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.deepPurpleAccent)),
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewLabReports()));
+                                },
+                                child: Text('View lab reports'),
+                              ),
+                            ]),
                           ],
                         ),
                       )
