@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/add_image/single_doctor_visit.dart';
 
 class SaveDoctorVisit extends StatefulWidget {
   const SaveDoctorVisit({Key? key}) : super(key: key);
@@ -82,7 +83,7 @@ class _SaveDoctorVisitState extends State<SaveDoctorVisit> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => SaveDoctorVisit(),
+                            builder: (_) => SingleDoctorVisit(),
                           ),
                         );
                       },

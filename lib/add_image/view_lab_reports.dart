@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/add_image/single_lab_report.dart';
 
 class ViewLabReports extends StatefulWidget {
   const ViewLabReports({Key? key}) : super(key: key);
@@ -73,7 +74,7 @@ class _ViewLabReportsState extends State<ViewLabReports> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => ViewLabReports(),
+                            builder: (_) => SingleLabReport(),
                           ),
                         );
                       },
